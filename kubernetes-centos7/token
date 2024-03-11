@@ -1,0 +1,1 @@
+kubeadm join 172.16.10.100:6443 --token dq02qq.x16hlwhdpk476ko2 --discovery-token-ca-cert-hash sha256:58919b1b64f8b0a81e6667658d6987ed446dffb5bf6d1364f675d72635570018

@@ -108,6 +108,12 @@ unmanaged-devices=interface-name:cali*;interface-name:tunl*
 
 EOF'
 
+sudo systemctl restart containerd.service
+
+sudo systemctl restart kubelet.service
+
+sudo systemctl enable kubelet.service
+
 # Fix lỗi caliso cho phiên bản mới
 
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/tigera-operator.yaml

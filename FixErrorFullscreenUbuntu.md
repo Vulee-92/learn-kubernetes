@@ -62,6 +62,12 @@ sudo reboot
  
  kubectl version --client
  
+ ---Tắt tường lửa---
+ 
+ systemctl disable firewalld >/dev/null 2>&1
+ 
+ systemctl stop firewalld
+ 
  ---cài docker---
  
  sudo apt update
@@ -78,6 +84,16 @@ sudo reboot
  
  sudo nano /etc/fstab
  
+ ---sysctl---
+ 
+ sudo bash -c 'cat >> /etc/sysctl.d/kubernetes.conf <<EOF
+ 
+ net.bridge.bridge-nf-call-ip6tables = 1
+ 
+ net.bridge.bridge-nf-call-iptables = 1
+ 
+ EOF'
+
  ---sau đó comment dòng---
  
  bằng cách thêm dấu # trước đầu dòng và lưu lại

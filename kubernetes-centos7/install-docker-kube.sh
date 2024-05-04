@@ -69,9 +69,9 @@ EOF
 yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 systemctl enable kubelet && systemctl start kubelet
 # 
-# yum install -y containerd
-# rm -f /etc/containerd/config.toml
-# systemctl restart containerd
+yum install -y containerd
+rm -f /etc/containerd/config.toml
+systemctl restart containerd
 # Configure NetworkManager before attempting to use Calico networking.
 cat >>/etc/NetworkManager/conf.d/calico.conf<<EOF
 [keyfile]

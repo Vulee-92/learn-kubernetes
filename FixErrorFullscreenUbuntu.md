@@ -28,7 +28,11 @@ sudo /media/patu/VBox_Gas_6.1.34/VBoxLinuxAdditions.run
 sudo reboot
 
 # Fix lỗi caliso cho phiên bản mới
+
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/tigera-operator.yaml
+
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/custom-resources.yaml
+
 # để gọi k9s trực tiếp từ terminal
+
 sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/

@@ -122,4 +122,10 @@ kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0
 
 # để gọi k9s trực tiếp từ terminal
 
+sudo apt update
+
+sudo apt install snapd
+
+sudo snap install k9s
+
 sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/

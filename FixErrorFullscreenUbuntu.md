@@ -1,3 +1,7 @@
+# Fix lỗi terminal cho ubuntu
+setting -> region and language -> chọn English (Canada)
+chọn region -> Singapo
+# Fix lỗi Full screen cho ubuntu
 findmnt
 
 /media/patu/VBox_Gas_6.1.34/VBoxLinuxAdditions.run

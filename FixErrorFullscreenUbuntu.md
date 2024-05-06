@@ -28,113 +28,101 @@ sudo /media/patu/VBox_Gas_6.1.34/VBoxLinuxAdditions.run
 sudo reboot
 # Hướng dẫn cài k8s trên ubuntu
 
- curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
- 
- curl -LO https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl
- 
- curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
- 
- echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
- 
- sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
- 
- kubectl version --client
- 
- kubectl version --client --output=yaml
- 
- sudo apt-get update
- 
- sudo apt-get install -y apt-transport-https ca-certificates curl
- 
- curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
- 
- sudo chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
- 
- echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
- 
- sudo chmod 644 /etc/apt/sources.list.d/kubernetes.list
- 
- sudo apt-get update
- 
- sudo apt-get install -y kubectl
- 
- snap install kubectl --classic
- 
- kubectl version --client
- 
- ---Tắt tường lửa---
- 
- systemctl disable firewalld >/dev/null 2>&1
- 
- systemctl stop firewalld
- 
- ---cài docker---
- 
- sudo apt update
- 
- sudo apt install docker.io
- 
- sudo systemctl start docker
- 
- sudo systemctl enable docker
- 
- sudo apt install kubeadm kubelet kubectl kubernetes-cni
- 
- sudo swapoff -a
- 
- sudo nano /etc/fstab
- 
- ---sysctl---
- 
- sudo bash -c 'cat >> /etc/sysctl.d/kubernetes.conf <<EOF
- 
- net.bridge.bridge-nf-call-ip6tables = 1
- 
- net.bridge.bridge-nf-call-iptables = 1
- 
- EOF'
+ UBUNTU SERVER LTS 22.04.3 - https://ubuntu.com/download/server
+KUBERNETES 1.29.1         - https://kubernetes.io/releases/
+CONTAINERD 1.7.13         - https://containerd.io/releases/
+RUNC 1.1.12               - https://github.com/opencontainers/runc/releases
+CNI PLUGINS 1.4.0         - https://github.com/containernetworking/plugins/releases
+CALICO CNI 3.27.2         - https://docs.tigera.io/calico/3.27/getting-started/kubernetes/quickstart
 
- ---sau đó comment dòng---
- 
- bằng cách thêm dấu # trước đầu dòng và lưu lại
- 
- #/swapfile
- 
- sudo hostnamectl set-hostname kubernetes-master
- 
- ---kiểm tra IP--
- 
- hostname -I
- 
- 10.0.2.15
- 
- sudo kubeadm init --apiserver-advertise-address=10.0.2.15 --pod-network-cidr=192.168.0.0/16
- 
- mkdir -p $HOME/.kube
- 
- sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
- 
- sudo chown $(id -u):$(id -g) $HOME/.kube/config
- 
- sudo bash -c 'cat >>/etc/NetworkManager/conf.d/calico.conf<<EOF
- 
-[keyfile]
+3 NODES, 2 vCPU, 8 GB RAM, 50GB Disk EACH
+k8s-control   192.168.15.93
+k8s-1         192.168.15.94
+k8s-2         192.168.15.95
 
-unmanaged-devices=interface-name:cali*;interface-name:tunl*
 
-EOF'
+### ALL: 
 
-sudo systemctl restart containerd.service
+sudo su
 
-sudo systemctl restart kubelet.service
+printf "\n192.168.15.93 k8s-control\n192.168.15.94 k8s-1\n192.168.15.95 k8s-1\n\n" >> /etc/hosts
 
-sudo systemctl enable kubelet.service
+printf "overlay\nbr_netfilter\n" >> /etc/modules-load.d/containerd.conf
 
-# Fix lỗi caliso cho phiên bản mới
+modprobe overlay
+modprobe br_netfilter
 
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/tigera-operator.yaml
+printf "net.bridge.bridge-nf-call-iptables = 1\nnet.ipv4.ip_forward = 1\nnet.bridge.bridge-nf-call-ip6tables = 1\n" >> /etc/sysctl.d/99-kubernetes-cri.conf
 
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/custom-resources.yaml
+sysctl --system
+
+wget https://github.com/containerd/containerd/releases/download/v1.7.13/containerd-1.7.13-linux-amd64.tar.gz -P /tmp/
+tar Cxzvf /usr/local /tmp/containerd-1.7.13-linux-amd64.tar.gz
+wget https://raw.githubusercontent.com/containerd/containerd/main/containerd.service -P /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable --now containerd
+
+wget https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.amd64 -P /tmp/
+install -m 755 /tmp/runc.amd64 /usr/local/sbin/runc
+
+wget https://github.com/containernetworking/plugins/releases/download/v1.4.0/cni-plugins-linux-amd64-v1.4.0.tgz -P /tmp/
+mkdir -p /opt/cni/bin
+tar Cxzvf /opt/cni/bin /tmp/cni-plugins-linux-amd64-v1.4.0.tgz
+
+mkdir -p /etc/containerd
+containerd config default | tee /etc/containerd/config.toml   <<<<<<<<<<< manually edit and change SystemdCgroup to true (not systemd_cgroup)
+nano /etc/containerd/config.toml
+systemctl restart containerd
+
+swapoff -a  <<<<<<<< just disable it in /etc/fstab instead
+nano /etc/fstab (# để comment)
+apt-get update
+apt-get install -y apt-transport-https ca-certificates curl gpg
+
+mkdir -p -m 755 /etc/apt/keyrings
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+apt-get update
+
+reboot
+
+sudo su
+
+# check swap config, ensure swap is 0
+
+free -m
+
+apt-get install -y kubelet=1.29.1-1.1 kubeadm=1.29.1-1.1 kubectl=1.29.1-1.1
+
+apt-mark hold kubelet kubeadm kubectl
+
+### ONLY ON CONTROL NODE .. control plane install:
+
+kubeadm init --pod-network-cidr 10.10.0.0/16 --kubernetes-version 1.29.1 --node-name k8s-control
+
+export KUBECONFIG=/etc/kubernetes/admin.conf
+
+# add Calico 3.27.2 CNI 
+
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/tigera-operator.yaml
+
+wget https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/custom-resources.yaml
+
+nano custom-resources.yaml <<<<<< edit the CIDR for pods if its custom(10.10.0.0)
+
+kubectl apply -f custom-resources.yaml
+
+# get worker node commands to run to join additional nodes into cluster
+
+kubeadm token create --print-join-command
+
+###
+
+
+### ONLY ON WORKER nodes
+
+Run the command from the token create output above
 
 # để gọi k9s trực tiếp từ terminal
 

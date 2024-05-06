@@ -132,4 +132,4 @@ sudo apt install snapd
 
 sudo snap install k9s
 
-sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/
+```sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/```

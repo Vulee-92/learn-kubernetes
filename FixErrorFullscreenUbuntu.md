@@ -110,43 +110,55 @@ k8s-2         192.168.15.95
 
 ```apt-get install -y kubelet=1.29.1-1.1 kubeadm=1.29.1-1.1 kubectl=1.29.1-1.1```
 
-```apt-mark hold kubelet kubeadm kubectl```
+```apt-mark hold kubelet kubeadm kubectl
+```
 
 ### ONLY ON CONTROL NODE .. control plane install:
 
-```kubeadm init --pod-network-cidr 10.10.0.0/16 --kubernetes-version 1.29.1 --node-name k8s-control```
+```kubeadm init --pod-network-cidr 10.10.0.0/16 --kubernetes-version 1.29.1 --node-name k8s-control
+```
 
-```export KUBECONFIG=/etc/kubernetes/admin.conf```
+```export KUBECONFIG=/etc/kubernetes/admin.conf
+```
 
 # add Calico 3.27.2 CNI 
 
-```kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/tigera-operator.yaml```
+```kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/tigera-operator.yaml
+```
 
-```wget https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/custom-resources.yaml```
+```wget https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/custom-resources.yaml
+```
 
-```nano custom-resources.yaml``` <<<<<< edit the CIDR for pods if its custom(10.10.0.0)
+```nano custom-resources.yaml
+``` 
+<<<<<< edit the CIDR for pods if its custom(10.10.0.0)
 
-```kubectl apply -f custom-resources.yaml```
+```kubectl apply -f custom-resources.yaml
+```
 
 # get worker node commands to run to join additional nodes into cluster
 
-```kubeadm token create --print-join-command```
+```kubeadm token create --print-join-command
+```
 
 ###
 
 
 ### ONLY ON WORKER nodes
 
-```Run the command from the token create output above```
+```Run the command from the token create output above
+```
 
 # để gọi k9s trực tiếp từ terminal
 
-```sudo apt update```
-
-```sudo apt install snapd```
-
-```sudo snap install k9s```
-
+```sudo apt update
 ```
-sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/
+
+```sudo apt install snapd
+```
+
+```sudo snap install k9s
+```
+
+```sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/
 ```

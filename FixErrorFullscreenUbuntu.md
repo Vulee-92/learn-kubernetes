@@ -50,6 +50,7 @@ k8s-2         192.168.15.95
 ```printf "overlay\nbr_netfilter\n" >> /etc/modules-load.d/containerd.conf```
 
 ```modprobe overlay```
+
 ```modprobe br_netfilter```
 
 ```printf "net.bridge.bridge-nf-call-iptables = 1\nnet.ipv4.ip_forward = 1\nnet.bridge.bridge-nf-call-ip6tables = 1\n" >> /etc/sysctl.d/99-kubernetes-cri.conf```
@@ -57,30 +58,43 @@ k8s-2         192.168.15.95
 ```sysctl --system```
 
 ```wget https://github.com/containerd/containerd/releases/download/v1.7.13/containerd-1.7.13-linux-amd64.tar.gz -P /tmp/```
+
 ```tar Cxzvf /usr/local /tmp/containerd-1.7.13-linux-amd64.tar.gz```
+
 ```wget https://raw.githubusercontent.com/containerd/containerd/main/containerd.service -P /etc/systemd/system/```
 ```systemctl daemon-reload```
+
 ```systemctl enable --now containerd```
 
 ```wget https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.amd64 -P /tmp/```
+
 ```install -m 755 /tmp/runc.amd64 /usr/local/sbin/runc```
 
 ```wget https://github.com/containernetworking/plugins/releases/download/v1.4.0/cni-plugins-linux-amd64-v1.4.0.tgz -P /tmp/
 mkdir -p /opt/cni/bin```
+
 ```tar Cxzvf /opt/cni/bin /tmp/cni-plugins-linux-amd64-v1.4.0.tgz```
 
 ```mkdir -p /etc/containerd```
+
 ```containerd config default | tee /etc/containerd/config.toml```   <<<<<<<<<<< manually edit and change SystemdCgroup to true (not systemd_cgroup)
+
 ```nano /etc/containerd/config.toml```
+
 ```systemctl restart containerd```
 
 ```swapoff -a```  <<<<<<<< just disable it in /etc/fstab instead
+
 ```nano /etc/fstab``` (# để comment)
+
 ```apt-get update```
+
 ```apt-get install -y apt-transport-https ca-certificates curl gpg```
 
 ```mkdir -p -m 755 /etc/apt/keyrings```
+
 ```curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg```
+
 ```echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list```
 
 ```apt-get update```

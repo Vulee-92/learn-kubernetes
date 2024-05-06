@@ -147,4 +147,6 @@ k8s-2         192.168.15.95
 
 ```sudo snap install k9s```
 
-```sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/```
+```
+sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/
+```

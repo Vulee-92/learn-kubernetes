@@ -48,16 +48,46 @@ sudo reboot
 ```
 # Hướng dẫn cài k8s trên ubuntu
 
-UBUNTU SERVER LTS 22.04.3 - https://ubuntu.com/download/server
-KUBERNETES 1.29.1         - https://kubernetes.io/releases/
-CONTAINERD 1.7.13         - https://containerd.io/releases/
-RUNC 1.1.12               - https://github.com/opencontainers/runc/releases
-CNI PLUGINS 1.4.0         - https://github.com/containernetworking/plugins/releases
-CALICO CNI 3.27.2         - https://docs.tigera.io/calico/3.27/getting-started/kubernetes/quickstart
+UBUNTU SERVER LTS 22.04.3
+
+```
+https://ubuntu.com/download/server
+```
+
+KUBERNETES 1.29.1      
+
+```
+https://kubernetes.io/releases/
+```
+
+CONTAINERD 1.7.13
+
+```
+https://containerd.io/releases/
+```
+
+RUNC 1.1.12    
+
+```
+https://github.com/opencontainers/runc/releases
+```
+CNI PLUGINS 1.4.0   
+
+```
+https://github.com/containernetworking/plugins/releases
+```
+CALICO CNI 3.27.2   
+
+```
+https://docs.tigera.io/calico/3.27/getting-started/kubernetes/quickstart
+```
 
 3 NODES, 2 vCPU, 8 GB RAM, 50GB Disk EACH
+
 k8s-control   192.168.15.93
+
 k8s-1         192.168.15.94
+
 k8s-2         192.168.15.95
 
 

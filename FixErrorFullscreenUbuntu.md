@@ -70,8 +70,9 @@ k8s-2         192.168.15.95
 
 ```install -m 755 /tmp/runc.amd64 /usr/local/sbin/runc```
 
-```wget https://github.com/containernetworking/plugins/releases/download/v1.4.0/cni-plugins-linux-amd64-v1.4.0.tgz -P /tmp/
-mkdir -p /opt/cni/bin```
+```wget https://github.com/containernetworking/plugins/releases/download/v1.4.0/cni-plugins-linux-amd64-v1.4.0.tgz -P /tmp/```
+
+```mkdir -p /opt/cni/bin```
 
 ```tar Cxzvf /opt/cni/bin /tmp/cni-plugins-linux-amd64-v1.4.0.tgz```
 

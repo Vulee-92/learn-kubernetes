@@ -42,6 +42,5 @@ curl --insecure -sfL https://192.168.10.19:6868/v3/import/d6mqd55wnz7vh8ltfg4xvg
 sudo sed -i 's|- --port=0|#- --port=0|' /etc/kubernetes/manifests/kube-scheduler.yaml
 sudo sed -i 's|- --port=0|#- --port=0|' /etc/kubernetes/manifests/kube-controller-manager.yaml
 sudo systemctl restart kubelet
-
 ```
 

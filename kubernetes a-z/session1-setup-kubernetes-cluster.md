@@ -143,6 +143,9 @@ curl -fsSL https://get.docker.com/ | sh
 sudo usermod -aG docker sysadmin
 ```
 
+```
+sudo su - sysadmin
+```
 # Giờ sẽ tạo docker-container từ kubespray, sau đó thực hiện cài k8s cluster từ bên trong container này:
 
 ```

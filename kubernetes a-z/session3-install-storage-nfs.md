@@ -110,7 +110,7 @@ Như này là cấu hình thành công rồi đó !!!
 
 Giờ tiêp tục cài helm thôi.
 
-Tạo thư mục mới để chưa helm 
+Tạo thư mục mới để chứa helm 
 
 ```
 mkdir /home/k8s_tools

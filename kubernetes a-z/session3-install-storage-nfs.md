@@ -80,7 +80,7 @@ Chỗ này có một chú ý là ban đầu mình đã đứng từ node cicd đ
 
 Đăng nhập node cicd bằng quyền root
 
-Do phiên bản Kubernetes đang cài trong series LAB này là v1.20.7 nên mình cũng sẽ cài kubectl cùng phiên bản:
+Do phiên bản Kubernetes đang cài là v1.20.7 nên mình cũng sẽ cài kubectl cùng phiên bản:
 
 
 ```

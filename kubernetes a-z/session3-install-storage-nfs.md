@@ -206,6 +206,21 @@ spec:
     requests:
       storage: 10Mi
 ```
+Tạo thêm một file config cho PVC có relaim policy là retain:
+
+```
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: test-pvc-retain
+spec:
+  storageClassName: patu-nfs-retain
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Mi
+```
 
 Tạo PVC bằng lệnh kubectl:
 

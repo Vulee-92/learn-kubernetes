@@ -303,3 +303,89 @@ sudo snap install k9s
 ```
 sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/
 ```
+
+# Cài đặt jenkins trên centos
+
+ ```
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+```
+
+```
+sudo yum upgrade
+```
+
+# Add required dependencies for the jenkins package
+
+--- kiểm tra phiên bản java trên centos --- 
+
+```
+yum search java | grep "1.8"
+```
+
+--- cài đặt theo như phiên bản trên centos ---
+
+```
+sudo yum install java-1.8.0-amazon-corretto.x86_64 
+```
+
+```
+sudo yum install jenkins
+```
+
+```
+sudo systemctl daemon-reload
+```
+
+# cài đặt jenkins trên ubuntu
+
+```
+sudo hostnamectl set-hostname Jenkins
+```
+
+```
+sudo reboot
+```
+
+```
+sudo apt update
+```
+
+```
+sudo apt install openjdk-17-jdk -y
+```
+
+```
+sudo apt install maven -y
+```
+
+```
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+```
+
+```
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+```
+
+```
+sudo apt update
+```
+
+```
+sudo apt install jenkins -y
+```
+--- add group docker ---
+
+```
+sudo usermod -aG docker $USER
+```
+
+--- get password ---
+
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```

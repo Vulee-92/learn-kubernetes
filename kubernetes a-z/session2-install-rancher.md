@@ -28,6 +28,14 @@ Tiếp theo chọn vào Add Cluster --> Other Cluster --> Nhập Cluster Name --
 curl --insecure -sfL https://192.168.10.19:6868/v3/import/d6mqd55wnz7vh8ltfg4xvgnfhhmdvmdzxs5m6b24znl5chwjgd977q_c-p4rh9.yaml |kubectl apply -f -
 ```
 
+---Chờ cho việc cài đặt Agent hoàn thành bạn check kết quả trên giao diện của Rancher--
+
+![alt text](image.png)
+
+---Vào tiếp giao diện Cluster Explorer ---
+
+![alt text](image-1.png)
+
 --- Lưu ý nếu như ranher báo Controller Manager unhealthy thì thêm 3 dòng này ở node master ---
 
 ```

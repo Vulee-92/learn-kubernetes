@@ -199,7 +199,7 @@ apiVersion: v1
 metadata:
   name: test-pvc-delete
 spec:
-  storageClassName: viettq-nfs-delete
+  storageClassName: patu-nfs-delete
   accessModes:
     - ReadWriteOnce
   resources:

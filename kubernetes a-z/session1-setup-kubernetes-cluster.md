@@ -218,5 +218,5 @@ worker2   Ready      <none>                 12h   v1.20.7   172.16.10.103   <non
 worker3   Ready      <none>                 12h   v1.20.7   172.16.10.104   <none>        CentOS Linux 7 (Core)   3.10.0-1127.el7.x86_64   docker://19.3.15
 ```
 
-# Như này đã thành công thiết lập kubernetes cluster nhiều master và nhiều worker rồi
+# Như này đã thành công thiết lập kubernetes cluster nhiều master và nhiều worker rồi !!!
 

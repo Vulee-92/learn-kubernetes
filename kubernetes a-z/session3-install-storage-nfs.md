@@ -94,7 +94,7 @@ kubectl version --client
 
 ```
 mkdir -p $HOME/.kube
-scp viettq-master1:~/.kube/config  $HOME/.kube/
+scp master1:~/.kube/config  $HOME/.kube/
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 

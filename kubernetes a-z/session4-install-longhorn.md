@@ -1,3 +1,5 @@
+# Cài đặt Storage cho K8S dùng longhorn
+
 # Ta sẽ có 2 phần: 
 
 + Longhorn storage: Là storage quản lý thiết bị lưu trữ, nó có vai trò giống như NFS Server vậy

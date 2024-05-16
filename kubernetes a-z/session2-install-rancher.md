@@ -17,7 +17,7 @@ docker run --name rancher-server -d --restart=unless-stopped -p 6860:80 -p 6868:
 
 --- lưu ý giữa Rancher và Kubernetes có bảng tương thích. Ví dụ bạn cài Kubernetes v1.20.7 thì cần cài Rancher v2.5.7. Các bạn có thể check trên trang chủ của rancher nhé! ---
  
---- sau đó truy cập đến ranher bằng https://<IP node ranher>:6868 ---
+--- sau đó truy cập đến ranher bằng https://172.16.10.105:6868 ---
 
 Tiếp theo chọn vào Add Cluster --> Other Cluster --> Nhập Cluster Name --> Chọn Create
 

@@ -25,7 +25,7 @@ Tiếp theo chọn vào Add Cluster --> Other Cluster --> Nhập Cluster Name --
 --- Tiếp theo copy dòng lệnh dưới cùng để chạy trên K8S Master Node để cài đặt rancher-agent lên K8S ---
 
 ```
-curl --insecure -sfL https://192.168.10.19:6868/v3/import/d6mqd55wnz7vh8ltfg4xvgnfhhmdvmdzxs5m6b24znl5chwjgd977q_c-p4rh9.yaml |kubectl apply -f -
+curl --insecure -sfL https://172.16.10.105:6868/v3/import/d6mqd55wnz7vh8ltfg4xvgnfhhmdvmdzxs5m6b24znl5chwjgd977q_c-p4rh9.yaml |kubectl apply -f -
 ```
 
 ---Chờ cho việc cài đặt Agent hoàn thành bạn check kết quả trên giao diện của Rancher--

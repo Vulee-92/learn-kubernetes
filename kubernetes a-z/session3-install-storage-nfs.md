@@ -31,6 +31,9 @@ systemctl restart nfs-server
 ```
 # Cấu hình file export để share quyền cho các node theo format sau mục đích là để cho phép các node trong dải ip 172.16.10.0/24 có quyền vào 2 thư mục /data2/delete và /data2/retain:
 
+```
+sudo vi /etc/exports
+```
 
 ```
 /data2/retain    172.16.10.0/24(rw,sync,no_root_squash,no_all_squash)

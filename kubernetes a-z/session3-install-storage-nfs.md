@@ -172,7 +172,7 @@ Thay đổi các tham số trong file values-nfs-retain.yaml như sau:
 
 ```
 replicaCount: 3
-server: 192.168.10.19
+server: 172.16.10.105
 path: /data2/retain
 provisionerName: patu-nfs-storage-retain-provisioner
 name: patu-nfs-retain

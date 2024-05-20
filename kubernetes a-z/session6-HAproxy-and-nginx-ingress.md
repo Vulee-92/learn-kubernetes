@@ -354,7 +354,7 @@ vrrp_instance kubernetes {
         auth_pass viettq
     }
     virtual_ipaddress {
-        192.168.10.10
+        172.16.10.99
     }
 
     track_script {
@@ -363,7 +363,7 @@ vrrp_instance kubernetes {
 }
 ```
 
-***Sau bước này ta đã cấu hình 3 k8s-master node có chung VIP 192.168.10.10, khi service haproxy trên node keepalived-master down (hoặc cả node keepalived-master down) thì VIP sẽ được chuyển sang node keepalived-backup (dựa vào tham số priority trong cấu hình keepalived). Bạn lưu ý không bị nhầm giữa master/worker node của K8S và master/backup của Keepalived nhé!***
+***Sau bước này ta đã cấu hình 3 k8s-master node có chung VIP 172.16.10.99, khi service haproxy trên node keepalived-master down (hoặc cả node keepalived-master down) thì VIP sẽ được chuyển sang node keepalived-backup (dựa vào tham số priority trong cấu hình keepalived). Bạn lưu ý không bị nhầm giữa master/worker node của K8S và master/backup của Keepalived nhé!***
 
 # Cấu hình haproxy
 

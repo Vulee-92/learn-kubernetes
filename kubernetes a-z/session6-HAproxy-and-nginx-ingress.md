@@ -59,6 +59,16 @@ cd /etc/rsyslog.d
 sudo vi haproxy.conf
 ```
 
+```
+# Collect log with UDP
+$ModLoad imudp
+$UDPServerAddress 127.0.0.1
+$UDPServerRun 514
+
+# Creating separate log files based on the severity
+local0.* /var/log/haproxy-traffic.log
+local0.notice /var/log/haproxy-admin.log
+```
 Sau đó restart lại rsyslog để apply:
 
 ```

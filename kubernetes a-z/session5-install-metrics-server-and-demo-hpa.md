@@ -6,7 +6,7 @@ Phần này thì cơ bản là đơn giản, khi cài đặt lần đầu có th
 
 **Cài đặt Metrics Server bằng helm-chart**
 
-Vẫn như mọi khi, mình sẽ đứng từ node scicd để bắt đầu cài đặt. Trước hết là tạo thư mục lưu file cài đặt:
+Vẫn như mọi khi, mình sẽ đứng từ node cicd để bắt đầu cài đặt. Trước hết là tạo thư mục lưu file cài đặt:
 
 ```
 cd /home/sysadmin/kubernetes_installation/

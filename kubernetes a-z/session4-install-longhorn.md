@@ -16,7 +16,7 @@ Cài đặt longhorn storage class trên K8S
 
 Test thử tạo PV/PVC và tạo Pod dùng longhorn storage class
 
-**Vẫn có một lưu ý nữa mình xin nhắc lại là việc cài đặt đều được thực hiện trên node vtq-cicd để quản lý tập trung các file cấu hình cài đặt được dễ dàng.**
+**Vẫn có một lưu ý nữa mình xin nhắc lại là việc cài đặt đều được thực hiện trên node cicd để quản lý tập trung các file cấu hình cài đặt được dễ dàng.**
 
 # Cài đặt longhorn storage
 

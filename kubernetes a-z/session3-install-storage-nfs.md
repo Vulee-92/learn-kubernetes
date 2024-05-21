@@ -117,6 +117,7 @@ Tạo thư mục mới để chứa helm
 
 ```
 mkdir /home/k8s_tools
+cd /home/k8s_tools
 ```
 
 ```

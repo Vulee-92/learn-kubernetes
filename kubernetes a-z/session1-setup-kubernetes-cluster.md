@@ -149,11 +149,7 @@ sudo su - sysadmin
 # Giờ sẽ tạo docker-container từ kubespray, sau đó thực hiện cài k8s cluster từ bên trong container này:
 
 ```
-docker run --rm -it --mount type=bind,source=/home/sysadmin/kubernetes_installation/kubespray/inventory/tu-cluster,dst=/inventory \
-  --mount type=bind,source=/home/sysadmin/.ssh/id_rsa,dst=/root/.ssh/id_rsa \
-  --mount type=bind,source=/home/sysadmin/.ssh/id_rsa,dst=/home/sysadmin/.ssh/id_rsa \
-  quay.io/kubespray/kubespray:v2.16.0 bash 
-
+docker run --rm -it --mount type=bind,source=/home/sysadmin/kubernetes_installation/kubespray/inventory/tu-cluster,dst=/inventory quay.io/kubespray/kubespray:v2.16.0 bash 
 ```
 
 --- Sau khi chạy lệnh trên, thì chúng ta đã exec vào bên trong container đó rồi, các bạn lưu ý dấu nhắc bây giờ sẽ là "root@b2dfac52ad07:/# ---

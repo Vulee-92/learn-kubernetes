@@ -31,7 +31,7 @@ Nginx-Ingress được cài trên K8S, nó được gọi là Ingress-Controller
 
 Hiểu đơn giản là ví dụ bạn có 3 máy chủ cùng có chạy một dịch vụ, bạn muốn khi một máy chủ bị down thì client vẫn sử dụng được dịch vụ bình thường, khi đó Keepalive sẽ giải quyết vấn đề của bạn.
 
-Như trong mô hình lab này, nếu mình chỉ cài Haproxy trên node master1 (vtq-master1) để làm LB. Khi đó client sẽ cần kết nối tới IP của node vtq-master1 này để sử dụng dịch vụ. Nếu node này down thì dịch vụ cũng tạch. Để giải quyết, mình sẽ cài Keepalive trên cả 3 node và cấu hình ra một VIP (Virtual IP), tại một thời điểm sẽ chỉ có 1 trong 3 node nhận VIP đó. Client sẽ chỉ quan tâm tới VIP để sử dụng dịch vụ, không quan tâm tới 3 IP của 3 node là gì. Khi một node down thì KeepAlived sẽ tự động kiểm tra và chuyển VIP sang một node khác còn active. Như vậy thì Haproxy sẽ cần được cài và cấu hình trên tất cả các node cài keepalive.
+Như trong mô hình lab này, nếu mình chỉ cài Haproxy trên node master1 (master1) để làm LB. Khi đó client sẽ cần kết nối tới IP của node master1 này để sử dụng dịch vụ. Nếu node này down thì dịch vụ cũng tạch. Để giải quyết, mình sẽ cài Keepalive trên cả 3 node và cấu hình ra một VIP (Virtual IP), tại một thời điểm sẽ chỉ có 1 trong 3 node nhận VIP đó. Client sẽ chỉ quan tâm tới VIP để sử dụng dịch vụ, không quan tâm tới 3 IP của 3 node là gì. Khi một node down thì KeepAlived sẽ tự động kiểm tra và chuyển VIP sang một node khác còn active. Như vậy thì Haproxy sẽ cần được cài và cấu hình trên tất cả các node cài keepalive.
 
 # Cài đặt
 
@@ -126,7 +126,7 @@ nginx-ingress-nginx-ingress-f5b87cc54-hs2lp   1/1     Running   0          7m39s
 
 ```
 
-Tranh thủ ở đây deploy một service để lát nữa test với Load Balancer luôn nhé! Tạo file apple.yaml có nội dung như sau để tạo một pod và service web (gọi là Apple app nhé)
+Tranh thủ ở đây deploy một service để lát nữa test với Load Balancer luôn nhé! Tạo file **apple.yaml** có nội dung như sau để tạo một pod và service web (gọi là Apple app nhé)
 
 ```
 kind: Pod
@@ -162,7 +162,7 @@ Sau đó deploy lên k8s:
 kubectl -n nginx-ingress apply -f apple.yaml
 ```
 
-Giờ ta tạo tiếp 1 ingress để kết nối vào Apple app vừa cài bên trên từ domain là apple.prod.viettq.com/apple nhé! Tạo file cấu hình ingress app.ingress.yaml :
+Giờ ta tạo tiếp 1 ingress để kết nối vào Apple app vừa cài bên trên từ domain là apple.prod.viettq.com/apple nhé! Tạo file cấu hình ingress **app.ingress.yaml** :
 
 ```
 apiVersion: networking.k8s.io/v1

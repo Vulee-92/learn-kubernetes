@@ -13,7 +13,7 @@ FC11K-00DE0-0800Z-04Z5E-MC8T6
 
 Bước này nhằm mục đích setup dải IP mình sẽ dùng cho các máy ảo (VM) sau này. Để thực hiện, các bạn mở VMware Workstation Pro vào mục edit ==> Virtual Network Editor ==> Chọn vào loại network là NAT:
 
-![alt text](images/image-34.png)
+![alt text](../images/image-34.png)
 
 Ở đây mình hướng dẫn sử dụng NAT, khi đó các VM sẽ được cấp một private IP trong dải mà bạn cài đặt ở mục Subnet IP. Các bạn có thể setup dải này tùy ý, ở đây mình recommend dùng dải 192.168.10.0 mask 255.255.255.0 (như hình).
 

@@ -34,16 +34,50 @@ Sau đó sửa các tham số dưới thẻ "args" cho giống như bên dưới
 ![alt text](image-20.png)
 ![alt text](image-21.png)
 
+```
+spec:
+      containers:
+      - args:
+        - --secure-port=4443
+        - --cert-dir=/tmp
+        - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+        - --kubelet-insecure-tls=true
+        - --kubelet-use-node-status-port
+        - --metric-resolution=15s
+        image: k8s.gcr.io/metrics-server/metrics-server:v0.6.1
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+```
+
+```
+ dnsPolicy: ClusterFirst
+      hostNetwork: true
+      priorityClassName: system-cluster-critical
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: metric-server-metrics-server
+      serviceAccountName: metric-server-metrics-server
+      terminationGracePeriodSeconds: 30
+```
 Lưu lại và chờ Pod được update lại. Các bạn có thể tham khảo thêm về issue này ở topic trên Github và StackOverFlow:
 
 https://github.com/kubernetes-sigs/metrics-server/issues/278
 
 https://stackoverflow.com/questions/68648198/metrics-service-in-kubernetes-not-working
 
+```
+kubectl -n kube-system get pods |grep metric
+```
 
 ![alt text](image-22.png)
 
 Như trên là Metrics Server chạy được rồi, giờ kiểm tra tải của node xem sao:
+
+```
+kubectl top pods
+```
 
 ![alt text](image-23.png)
 

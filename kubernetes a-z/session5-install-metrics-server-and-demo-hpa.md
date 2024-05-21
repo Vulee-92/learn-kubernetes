@@ -51,15 +51,15 @@ spec:
 ```
 
 ```
- dnsPolicy: ClusterFirst
-      hostNetwork: true
-      priorityClassName: system-cluster-critical
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      serviceAccount: metric-server-metrics-server
-      serviceAccountName: metric-server-metrics-server
-      terminationGracePeriodSeconds: 30
+dnsPolicy: ClusterFirst
+hostNetwork: true
+priorityClassName: system-cluster-critical
+restartPolicy: Always
+schedulerName: default-scheduler
+securityContext: {}
+serviceAccount: metric-server-metrics-server
+serviceAccountName: metric-server-metrics-server
+terminationGracePeriodSeconds: 30
 ```
 Lưu lại và chờ Pod được update lại. Các bạn có thể tham khảo thêm về issue này ở topic trên Github và StackOverFlow:
 

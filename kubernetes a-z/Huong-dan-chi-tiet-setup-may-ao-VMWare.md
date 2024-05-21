@@ -4,10 +4,12 @@
 
 **---key bản quyền VMware Workstation Pro 16 ---**
 
+```
 ZF3R0-FHED2-M80TY-8QYGC-NPKYF
 YF390-0HF8P-M81RQ-2DXQE-M2UT6
 ZF71R-DMX85-08DQY-8YMNC-PPHV8
 FC11K-00DE0-0800Z-04Z5E-MC8T6
+```
 
 # Cấu hình network cho VMware Workstation Pro
 

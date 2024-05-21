@@ -31,8 +31,8 @@ kubectl -n kube-system edit deploy metric-server-metrics-server
 
 Sau đó sửa các tham số dưới thẻ "args" cho giống như bên dưới:
 
-![alt text](image-20.png)
-![alt text](image-21.png)
+![alt text](../images/image-20.png)
+![alt text](../images/image-21.png)
 
 ```
 spec:
@@ -71,7 +71,7 @@ https://stackoverflow.com/questions/68648198/metrics-service-in-kubernetes-not-w
 kubectl -n kube-system get pods |grep metric
 ```
 
-![alt text](image-22.png)
+![alt text](../images/image-22.png)
 
 Như trên là Metrics Server chạy được rồi, giờ kiểm tra tải của node xem sao:
 
@@ -79,7 +79,7 @@ Như trên là Metrics Server chạy được rồi, giờ kiểm tra tải củ
 kubectl top nodes
 ```
 
-![alt text](image-23.png)
+![alt text](../images/image-23.png)
 
 
 # Cấu hình Autoscaling với HPA

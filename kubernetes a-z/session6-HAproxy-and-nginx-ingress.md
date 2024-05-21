@@ -15,7 +15,7 @@ Một điểm nữa cần lưu ý là service trên K8S khi được expose ra s
 
 Lab Kubernetes Cluster của mình gồm 03 master node và 03 worker node. Một node cài rancher (rancher), một node cài Jenkins (cicd) và cũng là nơi chứa toàn bộ các cấu hình phần mềm cài đặt cho K8S.
 
-![alt text](image-24.png)
+![alt text](../images/image-24.png)
 
 # Nguyên lý hoạt động
 
@@ -108,7 +108,7 @@ nodePort: 30443
 
 đổi lại như này:
 
-![alt text](image-25.png)
+![alt text](../images/image-25.png)
 
 Tạo namespace riêng và cài đặt lên:
 
@@ -293,7 +293,7 @@ sudo service keepalived restart
 ```
 
 Kết quả sẽ như sau:
-![alt text](image-26.png)
+![alt text](../images/image-26.png)
 
 Lúc này check lại IP của node sẽ thấy VIP 172.16.10.99 mới được tạo ra:
 
@@ -526,11 +526,11 @@ ta cần tìm đến file hosts trên windown sau đó copy ra ngoài desktop(c�
 ```
 Như vậy khi client kết nối tới địa chỉ http://rancher.monitor.viettq.com/ thì kết quả sẽ như sau:
 
-![alt text](image-31.png)
+![alt text](../images/image-31.png)
 
 Tiếp tục kết nối tới Apple app ở địa chỉ http://apple.prod.viettq.com/ và kết quả:
 
-![alt text](image-32.png)
+![alt text](../images/image-32.png)
 
 # Kiểm tra tính sẵn sàng (High Availability)
 
@@ -627,4 +627,4 @@ Check IP của node 2:
 
 Lúc này client kết nối vẫn theo VIP và vẫn sử dụng dịch vụ bình thường:
 
-![alt text](image-33.png)
+![alt text](../images/image-33.png)

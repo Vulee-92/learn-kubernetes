@@ -67,17 +67,17 @@ Khởi tạo longhorn bằng helm ta chạy lệnh sau
 helm install longhorn-storage -f values-longhorn.yaml longhorn/longhorn --version 1.2.2 --namespace storage
 ```
 
-![alt text](image-12.png)
+![alt text](../images/image-12.png)
 
 Như thế này là đã khởi tạo thành công
 
 **sau đó ta truy cập thông qua IP:30888 của node master và kiểm tra thành quả**
 
-![alt text](image-13.png)
+![alt text](../images/image-13.png)
 
 Thông tin các node
 
-![alt text](image-14.png)
+![alt text](../images/image-14.png)
 
 # Cài đặt longhorn storage class trên K8S
 
@@ -123,7 +123,7 @@ parameters:
 
 **Cài đặt 2 storage class này thôi:**
 
-![alt text](image-15.png)
+![alt text](../images/image-15.png)
 
 **Tới đây là đã hoàn thành cài đặt longhorn và storage class trên K8S sẵn sàng cho workload rồi ^^!**
 
@@ -216,16 +216,16 @@ spec:
 
 Tạo xong các file yaml thì tạo trước 2 PVC và xem kết quả:
 
-![alt text](image-16.png)
+![alt text](../images/image-16.png)
 
 Như vậy 2 PVC đều đã được longhorn storage class cấp PV cho rồi (STATUS là Bound). Giờ mình tạo tiếp 2 Pod dùng 2 PVC bên trên:
 
-![alt text](image-17.png)
-![alt text](image-18.png)
+![alt text](../images/image-17.png)
+![alt text](../images/image-18.png)
 
 Kiểm tra trên giao diện của Longhorn để thấy phân vùng được tạo và được replicas theo cấu hình đã tạo (2 replicas):
 
-![alt text](image-19.png)
+![alt text](../images/image-19.png)
 
 
 **Tới đây mình đã hoàn thành cài đặt longhorn storage trên Kubernetes Cluster và tạo các longhorn storage class**

@@ -48,7 +48,7 @@ Bộ khóa sẽ thay đổi theo mỗi trong lần giao dịch kế tiếp, mộ
 
 **Cơ chế hoạt động khi sử dụng SSL**
 
-![alt text](image-27.png)
+![alt text](../images/image-27.png)
 
 **Lợi ích khi sử dụng SSL**
 
@@ -80,7 +80,7 @@ Trong mô hình Load Balancing, HAProxy đứng giữa client và các backend s
 
 Thực hiện yêu cầu kết nối mã hóa SSL giữa Client và HAProxy, còn từ HAProxy thực hiện các kết nối không mã hóa với backend servers. Phương thức này gọi là SSL Termination --> Giúp giảm mức độ mức phức tạp khi chỉ phải quản lý SSL Certificate ở node Haproxy, và giảm tải CPU cho các webserver khi việc mã hóa/giải mã được thực hiện ở Haproxy
 
-![alt text](image-28.png)
+![alt text](../images/image-28.png)
 
 Thực hiện yêu cầu kết nối trực tiếp giữa Client và các backend servers. Tuy nhiên, khi đó chúng ta lại không thể thực hiện Add/Set phần Header. Phương thức này gọi là SSL Passthrough
 
@@ -136,11 +136,11 @@ total 8
 
 Sau đó mở Chrome và vào địa chỉ này để vào mục setting: chrome://settings/security --> Chọn vào Manage certificates Trong hộp thoại hiện ra bạn vào tab **Trusted Root Certification Authorities** --> Import --> Next --> Browse --> Chọn file rootCA.pem --> Next --> Next --> Finish.
 
-![alt text](image-29.png)
+![alt text](../images/image-29.png)
 
 Khi hộp thoại Security Warning hiện lên bạn chọn vào Yes, sau đó close hộp thoại và lúc nào thông tin CA đã được import vào Chrome.
 
-![alt text](image-30.png)
+![alt text](../images/image-30.png)
 
 **Tạo SSL Certificate cho ứng dụng web ở local**
 

@@ -49,7 +49,7 @@ systemctl restart nfs-server
 
 # Kiểm tra 2 thư mục đã được share hay chưa
 
-![alt text](image-2.png)
+![alt text](../images/image-2.png)
 
 --- như này là ok rồi ---
 
@@ -71,7 +71,7 @@ sudo yum install nfs-utils -y
 showmount -e 172.16.10.105
 ```
 
-![alt text](image-3.png)
+![alt text](../images/image-3.png)
 
 --- như này là ok rồi nhé ---
 
@@ -107,7 +107,7 @@ sau đó sửa file cấu hình lại tham số "server: https://127.0.0.1:6443"
 sudo vi ~/.kube/config
 ```
 
-![alt text](image-4.png)
+![alt text](../images/image-4.png)
 
 Như này là cấu hình thành công rồi đó !!!
 
@@ -126,7 +126,7 @@ sudo chmod 700 get_helm.sh
 ./get_helm.sh
 ```
 
-![alt text](image-5.png)
+![alt text](../images/image-5.png)
 
 Như này là cài đặt helm thành công
 
@@ -191,7 +191,7 @@ helm install nfs-storage-delete --namespace storage -f values-nfs-delete.yaml nf
 
 Kết quả cài đặt sẽ như thế này:
 
-![alt text](image-6.png)
+![alt text](../images/image-6.png)
 
 # Kiểm tra nfs-storageclass bằng cách tạo thử pvc
 
@@ -255,7 +255,7 @@ vi /etc/kubernetes/manifests/kube-apiserver.yaml
 
 sau đó ngồi đợi khoảng 2-3p thì nó tự động reset kube-api:
 
-![alt text](image-7.png)
+![alt text](../images/image-7.png)
 
 Như này là ok rồi!
 
@@ -268,19 +268,19 @@ kubectl apply -f test-pvc-delete.yaml
 
 Rồi bây giờ kiểm tra pvc được gán vào pv chưa nhé:
 
-![alt text](image-8.png)
+![alt text](../images/image-8.png)
 
 Status Bound là được gán thành công rồi .
 
 sau đó chúng ta kiểm tra để hiểu về DELETE và RETAIN
 
-![alt text](image-9.png)
+![alt text](../images/image-9.png)
 
 Như vậy ta thấy các phân vùng được tạo ở đúng các thư mục như cấu hình storage class. Giờ xóa cả 2 PVC xem chuyện gì xảy ra:
 
-![alt text](image-11.png)
+![alt text](../images/image-11.png)
 
 
 Quay trở lại NFS-Server để kiểm tra:
 
-![alt text](image-10.png)
+![alt text](../images/image-10.png)

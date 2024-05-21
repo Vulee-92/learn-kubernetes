@@ -55,7 +55,7 @@ systemctl restart nfs-server
 
 # Cài đặt NFS Client trên K8S Node
 
---- Cần phải cài đặt NFS Client trên tất cả các worker node để khi tạo Pod trên node đó có sử dụng NFS Storage Class thì node đó có thể mount được phân vùng NFS đã được share bởi NFS Server. ---
+--- Cần phải cài đặt NFS Client trên tất cả các master, worker node để khi tạo Pod trên node đó có sử dụng NFS Storage Class thì node đó có thể mount được phân vùng NFS đã được share bởi NFS Server. ---
 
 Cài NFS Client như sau:
 

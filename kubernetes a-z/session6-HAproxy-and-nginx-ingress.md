@@ -13,7 +13,7 @@ Một điểm nữa cần lưu ý là service trên K8S khi được expose ra s
 
 # Về kiến trúc
 
-Lab Kubernetes Cluster của mình gồm 03 master node và 03 worker node. Một node cài rancher (vtq-rancher), một node cài Jenkins (vtq-cicd) và cũng là nơi chứa toàn bộ các cấu hình phần mềm cài đặt cho K8S.
+Lab Kubernetes Cluster của mình gồm 03 master node và 03 worker node. Một node cài rancher (rancher), một node cài Jenkins (cicd) và cũng là nơi chứa toàn bộ các cấu hình phần mềm cài đặt cho K8S.
 
 ![alt text](image-24.png)
 

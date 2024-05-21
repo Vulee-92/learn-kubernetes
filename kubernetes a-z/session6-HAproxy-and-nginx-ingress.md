@@ -202,7 +202,7 @@ Như vậy lý thuyết khi client gọi tới domain là http://apple.prod.viet
 Trong lab này mình có 3 node master:
 
 ```
-Node	IP	            VIP	            State	priority
+Node	IP	            VIP	          State	  priority
 master1	172.16.10.100	172.16.10.99	Master	100
 master2	172.16.10.101	172.16.10.99	Backup	99
 master3	172.16.10.107	172.16.10.99	Backup	98

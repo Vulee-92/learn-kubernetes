@@ -19,6 +19,7 @@ Bước này nhằm mục đích setup dải IP mình sẽ dùng cho các máy �
 
 # Hướng dẫn cài đặt Centos7 và cấu hình tham số
 
+```
 Máy ảo    Role      IP             RAM   CPU      HDD       Note
 master1   master    192.168.10.11  3GB   2 core   50GB+20GB CICD 
 master2   master    192.168.10.12  3GB   2 core   50GB+20GB longhorn storage
@@ -28,6 +29,8 @@ worker2   worker    192.168.10.15  4GB   2 core   50GB+20GB longhorn storage
 worker3   worker    192.168.10.16  4GB   2 core   50GB+20GB longhorn storage
 racher              192.168.10.18  3GB   2 core   50GB+40GB longhorn storage + NFS-Server 
 cicd      kubespray 192.168.10.20  3GB   2 core   50GB+20GB longhorn storage
+```
+
 **Cài đặt centos7 lên máy ảo (VM)**
 
 Đầu tiên các bạn download bộ cài Centos7 [http://centos-hcm.viettelidc.com.vn/7/isos/x86_64/], nhớ chọn đúng file "CentOS-7-x86_64-Minimal-2009.iso" cho nó nhẹ!

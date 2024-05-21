@@ -214,6 +214,7 @@ Sửa file config của master1 ở đường dẫn /etc/keepalived/keepalived.c
 
 ```
 cd /etc/keepalived/
+sudo rm -rf keepalived.conf
 vi keepalived.conf
 ```
 

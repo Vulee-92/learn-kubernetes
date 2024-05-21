@@ -504,6 +504,14 @@ Sau đó restart lại haproxy service.
 sudo service haproxy restart
 ```
 
+ta vào các node master còn lại (master2,master3) ta sẽ copy file server.pem vào thư mục ssl 
+
+```
+cd /etc/haproxy
+sudo mkdir ssl
+chmod -R 777 ssl
+scp sysadmin@172.16.10.100:/etc/haproxy/ssl/server.pem /etc/haproxy/ssl
+```
 # Cấu hình ở client và kiểm tra kết nối
 
 Để kết nối được vào hệ thống, thì như đã giới thiệu ở đầu bài viết, client sẽ chỉ quan tâm tới VIP chứ ko cần biết 3 IP của 3 k8s master node. Bài toán đặt là client muốn kết nối tới 2 dịch vụ là rancher (rancher.monitor.viettq.com/) và Apple app (apple.prod.viettq.com/) thì phải làm như thế nào?

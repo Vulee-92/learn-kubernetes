@@ -504,7 +504,7 @@ Sau đó restart lại haproxy service.
 sudo service haproxy restart
 ```
 
-ta vào các node master còn lại (master2,master3) ta sẽ copy file server.pem vào thư mục ssl 
+Ta vào các node master còn lại (master2,master3) ta sẽ copy file server.pem vào thư mục ssl 
 
 ```
 cd /etc/haproxy

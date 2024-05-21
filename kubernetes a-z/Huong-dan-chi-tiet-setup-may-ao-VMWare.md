@@ -50,31 +50,31 @@ Gần xong rồi, giờ tới bước cấu hình tài nguyên cho máy ảo. Ti
 
 Okie rồi, giờ ấn Finish thôi để bắt đầu cài đặt thôi. Ở giao diện này các bạn ấn Enter để thực hiện cho nhanh không phải chờ mấy chục giây nhé:
 
-![alt text](image40.png)
+![alt text](../images/image40.png)
 
 Ở giao diện đầu tiên chọn ngôn ngữ English:
 
-![alt text](image41.png)
+![alt text](../images/image41.png)
 
 Tiếp theo ở giao diện này ta sẽ cầu hình thời gian (datetime), phân vùng cài đặt (INSTALLATION DESTINATION) và network.
 
-![alt text](image42.png)
+![alt text](../images/image42.png)
 
 Chọn vào DATE & TIME và cài đặt giờ cho máy chủ + set timezone về HCM ==> Ấn Done khi hoàn thành.
 
-![alt text](image43.png)
+![alt text](../images/image43.png)
 
 Tiếp tục chọn "INSTALLATION DESTINATION" ==> Chọn vào ổ 30GB mà ta đã tạo ==> Done
 
-![alt text](image44.png)
+![alt text](../images/image44.png)
 
 Tiếp theo là cấu hình Hostname và network. Đầu tiên điền hostname là centos7 ==> Apply. Tiếp theo enable cái network Ethernet (ens33) cho nó thành màu xanh như hình:
 
-![alt text](image45.png)
+![alt text](../images/image45.png)
 
 Chọn tiếp vào Configure... để cấu hình IP cho nó:
 
-![alt text](image46.png)
+![alt text](../images/image46.png)
 
 Ta chọn vào thẻ IPv4 Settings và chọn Method từ "DHCP" thành "Manual", ấn nút Add và đặt thông số như sau:
 
@@ -87,14 +87,14 @@ DNS mình đặt là 2 DNS của google để VM có thể kết nối ra intern
 
 Hoàn thành bước trên thì ta ấn vào **Begin Installation** để bắt đầu quá trình cài đặt Centos 7. Tiếp theo ta cần set password cho user root bằng cách ấn vào ROOT PASSWORD và nhập 2 lần pass vào đó.
 
-![alt text](image47.png)
+![alt text](../images/image47.png)
 
 Ấn tiếp vào **USER CREATION** để tạo thêm một super user có tên sysadmin:
 
-![alt text](image48.png)
+![alt text](../images/image48.png)
 
 **Các bạn lưu ý ghi nhớ password cho user root và sysadmin này để sử dụng về sau nhé!**
 
 Khi hoàn tất cài đặt sẽ có thông báo để reboot máy ảo, các bạn ấn vào reboot:
 
-![alt text](image49.png)
+![alt text](../images/image49.png)

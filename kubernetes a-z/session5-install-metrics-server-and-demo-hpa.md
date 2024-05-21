@@ -76,7 +76,7 @@ kubectl -n kube-system get pods |grep metric
 Như trên là Metrics Server chạy được rồi, giờ kiểm tra tải của node xem sao:
 
 ```
-kubectl top pods
+kubectl top nodes
 ```
 
 ![alt text](image-23.png)

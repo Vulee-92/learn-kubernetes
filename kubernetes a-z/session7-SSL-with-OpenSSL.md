@@ -230,3 +230,15 @@ cat viettq_app.key > server.pem
 cat viettq_app.csr >> server.pem
 cat viettq_app.crt >> server.pem
 ```
+Sau đó ta copy file server cho node master còn lại (master2,master3)
+
+**Lưu ý:** Tạo thư mục ssl như đường dẫn bên dưới cho 2 master node còn lại
+
+```
+cd /etc/haproxy
+sudo mkdir ssl
+```
+
+```
+scp root@10.14.16.35:/etc/haproxy/ssl/server.pem /etc/haproxy/ssl
+```

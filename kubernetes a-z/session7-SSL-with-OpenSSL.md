@@ -237,6 +237,7 @@ Sau đó ta copy file server cho node master còn lại (master2,master3)
 ```
 cd /etc/haproxy
 sudo mkdir ssl
+sudo chmod -R 777 ssl
 ```
 
 ```

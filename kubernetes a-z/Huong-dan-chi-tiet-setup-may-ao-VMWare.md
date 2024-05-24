@@ -23,14 +23,14 @@ Bước này nhằm mục đích setup dải IP mình sẽ dùng cho các máy �
 
 ```
 Máy ảo    Role      IP             RAM   CPU      HDD       Note
-master1   master    192.168.10.11  3GB   2 core   50GB+20GB CICD 
-master2   master    192.168.10.12  3GB   2 core   50GB+20GB longhorn storage
-master3   master    192.168.10.13  3GB   2 core   50GB+20GB longhorn storage
-worker1   worker    192.168.10.14  4GB   2 core   50GB+20GB longhorn storage
-worker2   worker    192.168.10.15  4GB   2 core   50GB+20GB longhorn storage
-worker3   worker    192.168.10.16  4GB   2 core   50GB+20GB longhorn storage
-racher              192.168.10.18  3GB   2 core   50GB+40GB longhorn storage + NFS-Server 
-cicd      kubespray 192.168.10.20  3GB   2 core   50GB+20GB longhorn storage
+master1   master    192.168.10.11  3GB   2 core   50GB+50GB CICD 
+master2   master    192.168.10.12  3GB   2 core   50GB+50GB longhorn storage
+master3   master    192.168.10.13  3GB   2 core   50GB+50GB longhorn storage
+worker1   worker    192.168.10.14  4GB   2 core   50GB+100GB longhorn storage
+worker2   worker    192.168.10.15  4GB   2 core   50GB+100GB longhorn storage
+worker3   worker    192.168.10.16  4GB   2 core   50GB+100GB longhorn storage
+racher              192.168.10.18  3GB   2 core   50GB+100GB+100GB longhorn storage + NFS-Server 
+cicd      kubespray 192.168.10.20  3GB   2 core   50GB+100GB longhorn storage
 ```
 
 **Cài đặt centos7 lên máy ảo (VM)**
